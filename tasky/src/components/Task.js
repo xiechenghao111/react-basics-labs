@@ -12,5 +12,8 @@ const Task = (props) => {
     )
 }
 
+taskState.tasks.map(
+    (task) => { return <Task /> }
+  );
 
 export default Task;
