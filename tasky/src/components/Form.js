@@ -2,6 +2,12 @@ import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+
 const AddTaskForm = (props) => {
    
   return (
@@ -33,6 +39,26 @@ const AddTaskForm = (props) => {
       />
     </div>
     <div>
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Priority</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={props.priority}
+          label="task.Priority"
+          onChange={(event) => props.change(event)}
+  
+        >
+          <MenuItem value={10}>Low</MenuItem>
+          <MenuItem value={20}>Medium</MenuItem>
+          <MenuItem value={30}>High</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
+    
+    </div>
+    <div>
       <TextField
         name="description"
         id="outlined-multiline-static"
@@ -43,6 +69,7 @@ const AddTaskForm = (props) => {
         onChange={(event) => props.change(event)}
       />
     </div>
+    
     <div>
       <Button 
         type="submit"
